@@ -19,16 +19,33 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = "Sent Memes"
+        updateMemes()
+        if memes.isEmpty {
+            self.gotoCreate()
+        }
+    }
+    
+    private func updateMemes() {
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
         memes = appDelegate.memes
+        println("MEMES")
+        println(memes)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationItem.title = "Sent Memes"
+        
+        updateMemes()
         calcCellViewParams()
         setupNavbarItem()
+        redrawTable()
     }
     
     // TODO: move this common code into its own mixin or something
-    func setupNavbarItem() {
+    private func setupNavbarItem() {
         let addIcon = UIBarButtonItem(
             barButtonSystemItem: UIBarButtonSystemItem.Add,
             target: self,
@@ -39,11 +56,14 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
     
     // TODO: work on completion handler?
     func gotoCreate() {
-        var vc = self.storyboard!.instantiateViewControllerWithIdentifier("createMeme") as! UIViewController
+        var vc = self.storyboard!.instantiateViewControllerWithIdentifier("createMeme") as! CreateMemeViewController
+        vc.goToSentMemesFn = {
+            self.navigationController?.popViewControllerAnimated(true)
+        }
         self.presentViewController(vc, animated: true, completion: nil)
     }
     
-    func calcCellViewParams() {
+    private func calcCellViewParams() {
         let cellWidth = self.view.frame.width
         let imgViewWidthLimit = cellWidth * 1 // by setting multiplier to 1, effectively disable this for now.
         
@@ -63,17 +83,14 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
         
         labelOffset = maxImgWidth + 20
         labelWidth = cellWidth - (maxImgWidth + 40)
-        println("cellWidth \(cellWidth)")
-        println("labelOffset \(labelOffset)")
-        println("labelWidth \(labelWidth)")
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        self.tableView = tableView
         return memes.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        self.tableView = tableView
         let cell = tableView.dequeueReusableCellWithIdentifier("MemeCell") as! UITableViewCell
         let meme = memes[indexPath.row]
         let image = meme.memedImage
@@ -82,8 +99,6 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
         let cellWidth = self.view.frame.width
         
         if let oldLabel = cell.contentView.viewWithTag(LABELVIEW_TAG) {
-            println("OLD LABEL FOUND")
-            println(oldLabel)
             oldLabel.removeFromSuperview()
         }
         
@@ -109,13 +124,15 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
         return cell
     }
     
-    override func updateViewConstraints() {
-        super.updateViewConstraints()
-        println("redrawing table")
+    private func redrawTable() {
         calcCellViewParams()
         if let tableView = self.tableView {
-            println("reloading data")
             tableView.reloadData()
         }
+    }
+    
+    override func updateViewConstraints() {
+        super.updateViewConstraints()
+        redrawTable()
     }
 }

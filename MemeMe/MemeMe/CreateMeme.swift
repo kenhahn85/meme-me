@@ -158,10 +158,10 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
         )
     }
     
+    var goToSentMemesFn: (() -> Void)?
+    
     func goToSentMemesView() {
-       // TODO
-        println("going to sent memes")
-        performSegueWithIdentifier("gotoSentMemes", sender: self)
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func generateMemedImage() -> UIImage {
@@ -193,9 +193,6 @@ class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegat
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
         appDelegate.memes.append(meme)
-        
-        println("Saving meme")
-        println(meme)
     }
     
     func share() {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="rrl-zw-Fgl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7531" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ghU-DN-ZIa">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
@@ -168,12 +168,11 @@
                         <outlet property="lowerToolbar" destination="8Ln-wc-KdE" id="2qK-cj-4zS"/>
                         <outlet property="upperText" destination="Sar-4x-45f" id="RXN-yr-6eT"/>
                         <outlet property="upperToolbar" destination="CKM-cG-0Nt" id="syZ-Fm-ARG"/>
-                        <segue destination="ghU-DN-ZIa" kind="show" identifier="gotoSentMemes" id="gEu-qO-Mxx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VRL-OM-lNN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="511.5" y="19"/>
+            <point key="canvasLocation" x="1213.5" y="1151"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="bhi-mM-ABu">
@@ -191,7 +190,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gRy-7z-oI9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1591.5" y="1022"/>
+            <point key="canvasLocation" x="-46.5" y="1258"/>
         </scene>
         <!--Tab Bar Nav Controller-->
         <scene sceneID="w4t-W1-csw">
@@ -208,7 +207,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rtE-6b-Vof" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1419" y="80"/>
+            <point key="canvasLocation" x="-21" y="476"/>
         </scene>
         <!--Sent Memes Table View Controller-->
         <scene sceneID="NuX-X8-h25">
@@ -289,7 +288,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AbK-qw-IFx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2185.5" y="880"/>
+            <point key="canvasLocation" x="877.5" y="360"/>
         </scene>
         <!--Custom Tab Bar Controller-->
         <scene sceneID="1XK-a0-tdQ">
@@ -308,7 +307,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eoS-En-tsr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="661.5" y="690"/>
+            <point key="canvasLocation" x="-1018.5" y="806"/>
         </scene>
     </scenes>
     <resources>

@@ -17,7 +17,7 @@ struct Meme {
     var text: String {
         var text = upperText
         if !lowerText.isEmpty {
-            text += ". " + lowerText
+            text += " - " + lowerText
         }
         return text
     }
