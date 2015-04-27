@@ -15,7 +15,10 @@ struct Meme {
     var image: UIImage
     var memedImage: UIImage
     var text: String {
-        // TODO: truncate as needed
-        return upperText + lowerText
+        var text = upperText
+        if !lowerText.isEmpty {
+            text += ". " + lowerText
+        }
+        return text
     }
 }

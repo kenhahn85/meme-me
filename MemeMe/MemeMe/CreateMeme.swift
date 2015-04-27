@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITabBarDelegate, UITextFieldDelegate {
+class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITabBarDelegate, UITextFieldDelegate {
     @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var upperToolbar: UIToolbar!
@@ -16,6 +16,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     @IBOutlet weak var upperText: UITextField!
     @IBOutlet weak var lowerText: UITextField!
+    
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +31,9 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.subscribeToKeyboardNotifications()
+        imageView.layer.zPosition = -1
+        // TODO: try segue to sent memes if xyz?
+        // I guess it makes more sense to make SentMemes the default controller and segue from there
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -154,6 +161,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func goToSentMemesView() {
        // TODO
         println("going to sent memes")
+        performSegueWithIdentifier("gotoSentMemes", sender: self)
     }
     
     func generateMemedImage() -> UIImage {
@@ -198,11 +206,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             activityItems: [memedImage],
             applicationActivities: nil
         )
-       
-        presentViewController(activityVc, animated: true, completion: {
+        
+        activityVc.completionWithItemsHandler = { (activityType, completed, returnedItems, activityError) in
             self.saveMeme(memedImage)
             self.goToSentMemesView()
-        })
+        }
+       
+        presentViewController(activityVc, animated: true, completion: nil)
     }
     
     func setupLowerToolbar() {
@@ -263,8 +273,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func tabBar(tabBar: UITabBar,
         didSelectItem item: UITabBarItem!) {
-            println(item.title)
-            
             if item.title == "Album" {
                 pickAnImageFromAlbum()
             } else if item.title == "Camera" {
