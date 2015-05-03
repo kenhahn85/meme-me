@@ -90,6 +90,17 @@
                                 <exclude reference="8Ln-wc-KdE"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="FsS-vi-0gu"/>
+                                <exclude reference="OR0-9V-UM0"/>
+                                <exclude reference="aTM-b1-eA3"/>
+                                <exclude reference="ffY-vX-HlM"/>
+                                <exclude reference="pup-gm-1Ea"/>
+                                <exclude reference="1co-AI-03s"/>
+                                <exclude reference="nlH-0X-Q2M"/>
+                                <exclude reference="7D3-iy-ZWh"/>
+                                <exclude reference="DyG-z1-V1o"/>
+                                <exclude reference="IJ6-uM-UVE"/>
+                                <exclude reference="UMp-MC-aFC"/>
                                 <exclude reference="2dX-h6-H6k"/>
                                 <exclude reference="5PO-Lc-mPF"/>
                                 <exclude reference="ak4-SF-h4A"/>
@@ -104,17 +115,6 @@
                                 <exclude reference="kfT-JH-RI8"/>
                                 <exclude reference="kgd-Wr-gOb"/>
                                 <exclude reference="pv7-O1-eaW"/>
-                                <exclude reference="FsS-vi-0gu"/>
-                                <exclude reference="OR0-9V-UM0"/>
-                                <exclude reference="aTM-b1-eA3"/>
-                                <exclude reference="ffY-vX-HlM"/>
-                                <exclude reference="pup-gm-1Ea"/>
-                                <exclude reference="1co-AI-03s"/>
-                                <exclude reference="nlH-0X-Q2M"/>
-                                <exclude reference="7D3-iy-ZWh"/>
-                                <exclude reference="DyG-z1-V1o"/>
-                                <exclude reference="IJ6-uM-UVE"/>
-                                <exclude reference="UMp-MC-aFC"/>
                                 <exclude reference="D7F-lH-Oca"/>
                                 <exclude reference="Qtd-Mq-TzQ"/>
                                 <exclude reference="bL6-ly-cN0"/>
@@ -129,6 +129,17 @@
                                 <include reference="8Ln-wc-KdE"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="FsS-vi-0gu"/>
+                                <exclude reference="OR0-9V-UM0"/>
+                                <include reference="aTM-b1-eA3"/>
+                                <exclude reference="ffY-vX-HlM"/>
+                                <include reference="pup-gm-1Ea"/>
+                                <include reference="1co-AI-03s"/>
+                                <include reference="nlH-0X-Q2M"/>
+                                <include reference="7D3-iy-ZWh"/>
+                                <exclude reference="DyG-z1-V1o"/>
+                                <include reference="IJ6-uM-UVE"/>
+                                <include reference="UMp-MC-aFC"/>
                                 <include reference="2dX-h6-H6k"/>
                                 <exclude reference="5PO-Lc-mPF"/>
                                 <exclude reference="ak4-SF-h4A"/>
@@ -143,17 +154,6 @@
                                 <include reference="kfT-JH-RI8"/>
                                 <exclude reference="kgd-Wr-gOb"/>
                                 <exclude reference="pv7-O1-eaW"/>
-                                <include reference="FsS-vi-0gu"/>
-                                <exclude reference="OR0-9V-UM0"/>
-                                <include reference="aTM-b1-eA3"/>
-                                <exclude reference="ffY-vX-HlM"/>
-                                <include reference="pup-gm-1Ea"/>
-                                <include reference="1co-AI-03s"/>
-                                <include reference="nlH-0X-Q2M"/>
-                                <include reference="7D3-iy-ZWh"/>
-                                <exclude reference="DyG-z1-V1o"/>
-                                <include reference="IJ6-uM-UVE"/>
-                                <include reference="UMp-MC-aFC"/>
                                 <exclude reference="D7F-lH-Oca"/>
                                 <exclude reference="Qtd-Mq-TzQ"/>
                                 <include reference="bL6-ly-cN0"/>
@@ -174,28 +174,45 @@
             </objects>
             <point key="canvasLocation" x="1213.5" y="1151"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="bhi-mM-ABu">
+        <!--Navigation Controller-->
+        <scene sceneID="yMq-4z-N6f">
             <objects>
-                <viewController id="NkP-ZN-uaQ" sceneMemberID="viewController">
+                <navigationController id="Dc3-M4-iDd" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="collection" id="JsQ-dN-Uff"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LHR-1j-o8P">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="178-4a-qVG" kind="relationship" relationship="rootViewController" id="Bap-d4-NOp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="24F-QJ-LK0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-181.5" y="1244"/>
+        </scene>
+        <!--Sent Memes Collection View-->
+        <scene sceneID="K95-9o-Ori">
+            <objects>
+                <viewController id="178-4a-qVG" customClass="SentMemesCollectionView" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="cPX-3U-rVU"/>
-                        <viewControllerLayoutGuide type="bottom" id="uGq-8g-vjt"/>
+                        <viewControllerLayoutGuide type="top" id="lcW-Ss-Ya6"/>
+                        <viewControllerLayoutGuide type="bottom" id="jNS-Ee-FGJ"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="6gn-3g-QC7">
+                    <view key="view" contentMode="scaleToFill" id="iGf-jG-q44">
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="collection" id="UHU-M8-MvJ"/>
+                    <navigationItem key="navigationItem" id="I30-rB-DRG"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gRy-7z-oI9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vFI-fe-1Fw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-46.5" y="1258"/>
+            <point key="canvasLocation" x="546" y="1256"/>
         </scene>
-        <!--Tab Bar Nav Controller-->
+        <!--Navigation Controller-->
         <scene sceneID="w4t-W1-csw">
             <objects>
-                <navigationController id="NT9-qY-drG" customClass="TabBarNavController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController id="NT9-qY-drG" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="" image="table" id="tGH-IE-pif"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zDM-AM-NUM">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -218,6 +235,7 @@
                         <viewControllerLayoutGuide type="bottom" id="8Gt-bp-fFA"/>
                     </layoutGuides>
                     <view key="view" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="1L8-Lc-xjt">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="100" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="KWz-B7-Knn">
@@ -252,6 +270,8 @@
                                 <exclude reference="KWz-B7-Knn"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="loD-UN-Ieo"/>
+                                <exclude reference="t8N-wn-vWf"/>
                                 <exclude reference="22B-FE-nLM"/>
                                 <exclude reference="Esm-Zi-gP5"/>
                                 <exclude reference="GzO-gh-I6E"/>
@@ -259,8 +279,6 @@
                                 <exclude reference="ScI-dj-NwC"/>
                                 <exclude reference="h14-nW-fct"/>
                                 <exclude reference="lRF-Gn-bew"/>
-                                <exclude reference="loD-UN-Ieo"/>
-                                <exclude reference="t8N-wn-vWf"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -268,6 +286,8 @@
                                 <include reference="KWz-B7-Knn"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="loD-UN-Ieo"/>
+                                <exclude reference="t8N-wn-vWf"/>
                                 <include reference="22B-FE-nLM"/>
                                 <exclude reference="Esm-Zi-gP5"/>
                                 <include reference="GzO-gh-I6E"/>
@@ -275,8 +295,6 @@
                                 <include reference="ScI-dj-NwC"/>
                                 <exclude reference="h14-nW-fct"/>
                                 <exclude reference="lRF-Gn-bew"/>
-                                <include reference="loD-UN-Ieo"/>
-                                <exclude reference="t8N-wn-vWf"/>
                             </mask>
                         </variation>
                     </view>
@@ -302,7 +320,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="NT9-qY-drG" kind="relationship" relationship="viewControllers" id="3CN-3x-gAc"/>
-                        <segue destination="NkP-ZN-uaQ" kind="relationship" relationship="viewControllers" id="usr-cw-ddt"/>
+                        <segue destination="Dc3-M4-iDd" kind="relationship" relationship="viewControllers" id="IP7-Fv-Oma"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eoS-En-tsr" userLabel="First Responder" sceneMemberID="firstResponder"/>

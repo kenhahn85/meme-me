@@ -17,6 +17,8 @@
 		702FE7041AED8C8E00D841C1 /* SentMemesCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702FE7031AED8C8E00D841C1 /* SentMemesCollection.swift */; };
 		702FE7061AEDA3E600D841C1 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702FE7051AEDA3E600D841C1 /* TabBar.swift */; };
 		702FE7081AEDA91E00D841C1 /* TabBarNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702FE7071AEDA91E00D841C1 /* TabBarNav.swift */; };
+		70F0F3881AF60666005B5C66 /* MemeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F0F3871AF60666005B5C66 /* MemeCell.swift */; };
+		70F0F38B1AF69EEA005B5C66 /* SentMemesNav.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F0F38A1AF69EEA005B5C66 /* SentMemesNav.swift */; };
 		70FE7B881AE45F8600FD3634 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FE7B871AE45F8600FD3634 /* Meme.swift */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +47,8 @@
 		702FE7031AED8C8E00D841C1 /* SentMemesCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentMemesCollection.swift; sourceTree = "<group>"; };
 		702FE7051AEDA3E600D841C1 /* TabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		702FE7071AEDA91E00D841C1 /* TabBarNav.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarNav.swift; sourceTree = "<group>"; };
+		70F0F3871AF60666005B5C66 /* MemeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeCell.swift; sourceTree = "<group>"; };
+		70F0F38A1AF69EEA005B5C66 /* SentMemesNav.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SentMemesNav.swift; sourceTree = "<group>"; };
 		70FE7B871AE45F8600FD3634 /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -87,6 +91,9 @@
 		701E81F81AE37D1C00B7473B /* MemeMe */ = {
 			isa = PBXGroup;
 			children = (
+				70F0F3891AF69EC3005B5C66 /* util */,
+				70F0F3841AF60338005B5C66 /* collection-view */,
+				70F0F3811AF567CF005B5C66 /* sub-views */,
 				702FE6FE1AED5A8700D841C1 /* view-controllers */,
 				70FE7B861AE45F7700FD3634 /* models */,
 				701E81FB1AE37D1C00B7473B /* AppDelegate.swift */,
@@ -128,11 +135,34 @@
 			children = (
 				701E81FD1AE37D1C00B7473B /* CreateMeme.swift */,
 				702FE7011AED70D600D841C1 /* SentMemesTable.swift */,
-				702FE7031AED8C8E00D841C1 /* SentMemesCollection.swift */,
 				702FE7051AEDA3E600D841C1 /* TabBar.swift */,
 				702FE7071AEDA91E00D841C1 /* TabBarNav.swift */,
 			);
 			name = "view-controllers";
+			sourceTree = "<group>";
+		};
+		70F0F3811AF567CF005B5C66 /* sub-views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "sub-views";
+			sourceTree = "<group>";
+		};
+		70F0F3841AF60338005B5C66 /* collection-view */ = {
+			isa = PBXGroup;
+			children = (
+				702FE7031AED8C8E00D841C1 /* SentMemesCollection.swift */,
+				70F0F3871AF60666005B5C66 /* MemeCell.swift */,
+			);
+			name = "collection-view";
+			sourceTree = "<group>";
+		};
+		70F0F3891AF69EC3005B5C66 /* util */ = {
+			isa = PBXGroup;
+			children = (
+				70F0F38A1AF69EEA005B5C66 /* SentMemesNav.swift */,
+			);
+			name = util;
 			sourceTree = "<group>";
 		};
 		70FE7B861AE45F7700FD3634 /* models */ = {
@@ -243,11 +273,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70F0F3881AF60666005B5C66 /* MemeCell.swift in Sources */,
 				702FE7021AED70D600D841C1 /* SentMemesTable.swift in Sources */,
 				701E81FE1AE37D1C00B7473B /* CreateMeme.swift in Sources */,
 				702FE7081AEDA91E00D841C1 /* TabBarNav.swift in Sources */,
 				701E81FC1AE37D1C00B7473B /* AppDelegate.swift in Sources */,
 				702FE7061AEDA3E600D841C1 /* TabBar.swift in Sources */,
+				70F0F38B1AF69EEA005B5C66 /* SentMemesNav.swift in Sources */,
 				702FE7041AED8C8E00D841C1 /* SentMemesCollection.swift in Sources */,
 				70FE7B881AE45F8600FD3634 /* Meme.swift in Sources */,
 			);

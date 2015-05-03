@@ -8,6 +8,7 @@
 
 import UIKit
 
+// TODO: remove this because this seems pointless
 class TabBarNavController: UINavigationController {
     // TODO: can i put '+' icon handler here?
     override func viewDidLoad() {

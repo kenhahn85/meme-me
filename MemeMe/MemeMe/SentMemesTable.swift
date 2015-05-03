@@ -16,51 +16,30 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
     var tableView: UITableView!
     var labelOffset: CGFloat!
     var labelWidth: CGFloat!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        updateMemes()
-        if memes.isEmpty {
-            self.gotoCreate()
-        }
-    }
+    var navSetup: SentMemesNavSetup!
     
     private func updateMemes() {
         let object = UIApplication.sharedApplication().delegate
         let appDelegate = object as! AppDelegate
         memes = appDelegate.memes
-        println("MEMES")
-        println(memes)
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
-        self.navigationItem.title = "Sent Memes"
-        
         updateMemes()
-        calcCellViewParams()
-        setupNavbarItem()
-        redrawTable()
-    }
-    
-    // TODO: move this common code into its own mixin or something
-    private func setupNavbarItem() {
-        let addIcon = UIBarButtonItem(
-            barButtonSystemItem: UIBarButtonSystemItem.Add,
-            target: self,
-            action: "gotoCreate"
-        )
-        self.navigationItem.rightBarButtonItem = addIcon
-    }
-    
-    // TODO: work on completion handler?
-    func gotoCreate() {
-        var vc = self.storyboard!.instantiateViewControllerWithIdentifier("createMeme") as! CreateMemeViewController
-        vc.goToSentMemesFn = {
-            self.navigationController?.popViewControllerAnimated(true)
+        
+        navSetup = SentMemesNavSetup(vc: self)
+        if memes.isEmpty {
+            navSetup.gotoCreate()
+        } else {
+            calcCellViewParams()
+            navSetup.setupNavbarItem()
+            redrawTable()
         }
-        self.presentViewController(vc, animated: true, completion: nil)
+    }
+    
+    func gotoCreate() {
+        navSetup.gotoCreate()
     }
     
     private func calcCellViewParams() {
@@ -110,15 +89,12 @@ class SentMemesTableViewController: UIViewController, UITableViewDataSource, UIT
         cell.contentView.addSubview(labelView)
         
         if let oldImageView = cell.contentView.viewWithTag(IMGVIEW_TAG) {
-            println(oldImageView)
         } else {
-            println("adding img view")
             let imageViewWidth = CELL_HEIGHT * image.size.width / image.size.height
             let imageView = UIImageView(frame: CGRectMake(0.0, 0.0, imageViewWidth, CELL_HEIGHT))
             imageView.tag = IMGVIEW_TAG
             imageView.image = image
             cell.contentView.addSubview(imageView)
-            println("imageViewWidth \(imageViewWidth)")
         }
         
         return cell
