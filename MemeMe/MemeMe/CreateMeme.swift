@@ -8,7 +8,6 @@
 
 import UIKit
 
-// TODO: organize methods by protocol, overrides, etc.
 public final class CreateMemeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     @IBOutlet weak var imageView: UIImageView!
     
@@ -17,7 +16,6 @@ public final class CreateMemeViewController: UIViewController, UIImagePickerCont
 
     @IBOutlet weak var upperText: UITextField!
     @IBOutlet weak var lowerText: UITextField!
-    
     
     
     /* overrides start */
@@ -177,7 +175,6 @@ public final class CreateMemeViewController: UIViewController, UIImagePickerCont
         )
         shareButton.enabled = false
         
-        // TODO: show sent memes view
         let cancelButton = UIBarButtonItem(
             title: "Cancel",
             style: UIBarButtonItemStyle.Plain,
@@ -191,12 +188,14 @@ public final class CreateMemeViewController: UIViewController, UIImagePickerCont
         )
     }
     
+    // callback that is invoked after the user has shared their meme
     public var goToSentMemesFn: (() -> Void)?
     
     internal func goToSentMemesView() {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
     
+    // using the recommended method from the instructions
     private func generateMemedImage() -> UIImage {
         upperToolbar.hidden = true
         lowerToolbar.hidden = true
@@ -208,7 +207,6 @@ public final class CreateMemeViewController: UIViewController, UIImagePickerCont
         UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
-        // TODO:  Show toolbar and navbar
         upperToolbar.hidden = false
         lowerToolbar.hidden = false
         
@@ -231,8 +229,6 @@ public final class CreateMemeViewController: UIViewController, UIImagePickerCont
     internal func share() {
         let memedImage: UIImage = generateMemedImage()
         let activityVc = UIActivityViewController(
-            // TODO: generate meme image using this: https://www.udacity.com/course/viewer#!/c-ud788-nd/l-3669378557/m-3771758758
-            // TODO: then save a Meme object using a shared model
             activityItems: [memedImage],
             applicationActivities: nil
         )

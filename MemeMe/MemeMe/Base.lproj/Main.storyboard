@@ -172,7 +172,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VRL-OM-lNN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1213.5" y="1151"/>
+            <point key="canvasLocation" x="1345.5" y="1075"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yMq-4z-N6f">
@@ -200,6 +200,7 @@
                         <viewControllerLayoutGuide type="bottom" id="jNS-Ee-FGJ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="iGf-jG-q44">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -208,6 +209,60 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vFI-fe-1Fw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="546" y="1256"/>
+        </scene>
+        <!--Meme Details View Controller-->
+        <scene sceneID="MD0-Uj-Yi6">
+            <objects>
+                <viewController storyboardIdentifier="MemeDetailsViewController" id="FYV-Rt-D7J" customClass="MemeDetailsViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JPH-q6-M16"/>
+                        <viewControllerLayoutGuide type="bottom" id="WdL-0I-V6j"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KvH-Vt-lpD">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ovu-03-hGb">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ovu-03-hGb" firstAttribute="leading" secondItem="KvH-Vt-lpD" secondAttribute="leadingMargin" constant="-16" id="0Ws-cL-bCe"/>
+                            <constraint firstItem="Ovu-03-hGb" firstAttribute="top" secondItem="KvH-Vt-lpD" secondAttribute="topMargin" id="1hl-M3-nZ0"/>
+                            <constraint firstItem="WdL-0I-V6j" firstAttribute="top" secondItem="Ovu-03-hGb" secondAttribute="bottom" id="GHI-SI-5rk"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ovu-03-hGb" secondAttribute="trailing" constant="-16" id="odE-q5-quI"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="Ovu-03-hGb"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="GHI-SI-5rk"/>
+                                <exclude reference="0Ws-cL-bCe"/>
+                                <exclude reference="1hl-M3-nZ0"/>
+                                <exclude reference="odE-q5-quI"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="Ovu-03-hGb"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="GHI-SI-5rk"/>
+                                <include reference="0Ws-cL-bCe"/>
+                                <include reference="1hl-M3-nZ0"/>
+                                <include reference="odE-q5-quI"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="Ovu-03-hGb" id="PfL-JN-ECA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3ib-OD-9G8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-973.5" y="-144"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="w4t-W1-csw">
@@ -251,6 +306,7 @@
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="Nk4-K0-h8s" id="Ttr-cx-gGa"/>
+                                    <outlet property="delegate" destination="Nk4-K0-h8s" id="Nbq-UR-J9a"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -301,17 +357,17 @@
                     <tabBarItem key="tabBarItem" title="" image="table" id="X0v-cj-2zM"/>
                     <navigationItem key="navigationItem" id="ktK-eG-hhc"/>
                     <connections>
-                        <segue destination="rrl-zw-Fgl" kind="show" identifier="gotoCreate" id="yLe-eT-YqZ"/>
+                        <outlet property="tableView" destination="KWz-B7-Knn" id="UYs-gE-MIm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AbK-qw-IFx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="877.5" y="360"/>
+            <point key="canvasLocation" x="835.5" y="374"/>
         </scene>
-        <!--Custom Tab Bar Controller-->
+        <!--Tab Bar Controller-->
         <scene sceneID="1XK-a0-tdQ">
             <objects>
-                <tabBarController id="ghU-DN-ZIa" customClass="CustomTabBarController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController id="ghU-DN-ZIa" sceneMemberID="viewController">
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="3l9-iS-gO8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>

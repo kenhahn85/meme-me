@@ -9,14 +9,14 @@
 import UIKit
 
 struct SentMemesNavSetup {
-    private var vc: UIViewController!
+    private var vc: SentMemeViewController!
     
-    init(vc: UIViewController) {
+    init(vc: SentMemeViewController) {
         self.vc = vc
     }
     
     // TODO: move this common code into its own mixin or something
-    func setupNavbarItem() {
+    func setupNavbar() {
         let addIcon = UIBarButtonItem(
             barButtonSystemItem: UIBarButtonSystemItem.Add,
             target: vc,
