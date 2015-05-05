@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CreateMemeViewController.swift
 //  MemeMe
 //
 //  Created by Ken Hahn on 4/18/15.
@@ -54,6 +54,8 @@ public final class CreateMemeViewController: UIViewController, UIImagePickerCont
     
     /* UITextFieldDelegate start */
     
+    // invoked when the user begins editing a text field.
+    // clears the default text on first selection.
     public func textFieldDidBeginEditing(textField: UITextField) {
         if !upperTextEdited && textField == upperText {
             upperTextEdited = true
@@ -66,6 +68,7 @@ public final class CreateMemeViewController: UIViewController, UIImagePickerCont
         }
     }
     
+    // dismisses the keyboard when pressing Return
     public func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
@@ -119,12 +122,14 @@ public final class CreateMemeViewController: UIViewController, UIImagePickerCont
         )
     }
     
+    // this method slides the view up when the bottom text field is selected
     internal func keyboardWillShow(notification: NSNotification) {
         if lowerText.isFirstResponder() {
             self.view.frame.origin.y -= getKeyboardHeight(notification)
         }
     }
     
+    // this method slides the view back down after the bottom text field is handled
     internal func keyboardWillHide(notification: NSNotification) {
         if lowerText.isFirstResponder() {
             self.view.frame.origin.y += getKeyboardHeight(notification)
@@ -161,6 +166,7 @@ public final class CreateMemeViewController: UIViewController, UIImagePickerCont
     
     private var shareButton: UIBarButtonItem!
     
+    // adds the share and cancel buttons to the upper toolbar
     private func setupUpperToolbar() {
         let flexibleSpace = UIBarButtonItem(
             barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace,
@@ -226,6 +232,7 @@ public final class CreateMemeViewController: UIViewController, UIImagePickerCont
         appDelegate.memes.append(meme)
     }
     
+    // presents the iOS built-in share interface
     internal func share() {
         let memedImage: UIImage = generateMemedImage()
         let activityVc = UIActivityViewController(
@@ -243,6 +250,7 @@ public final class CreateMemeViewController: UIViewController, UIImagePickerCont
         presentViewController(activityVc, animated: true, completion: nil)
     }
     
+    // set up the camera and album buttons in the bottom toolbar
     private func setupLowerToolbar() {
         let flexibleSpace = UIBarButtonItem(
             barButtonSystemItem: UIBarButtonSystemItem.FlexibleSpace,

@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  MemeDetailsView.swift
 //  MemeMe
 //
 //  Created by Ken Hahn on 5/3/15.

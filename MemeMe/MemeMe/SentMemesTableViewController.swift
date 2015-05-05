@@ -1,5 +1,5 @@
 //
-//  SentMemesTable.swift
+//  SentMemesTableViewController.swift
 //  MemeMe
 //
 //  Created by Ken Hahn on 4/26/15.

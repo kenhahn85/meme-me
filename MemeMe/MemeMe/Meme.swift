@@ -1,5 +1,5 @@
 //
-//  meme.swift
+//  Meme.swift
 //  MemeMe
 //
 //  Created by Ken Hahn on 4/19/15.

@@ -1,5 +1,5 @@
 //
-//  VcWithCreateMemeLink.swift
+//  SentMemesVc.swift
 //  MemeMe
 //
 //  Created by Ken Hahn on 5/3/15.
