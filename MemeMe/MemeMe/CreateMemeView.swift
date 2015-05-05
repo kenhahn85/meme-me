@@ -77,6 +77,8 @@ public final class CreateMemeViewController: UIViewController, UIImagePickerCont
     
     /* UIImagePickerControllerDelegate start */
 
+    // this method is called after the user has picked an image,
+    // enabling the share button and displaying the selected image.
     public func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
         if let img:UIImage = info["UIImagePickerControllerOriginalImage"] as! UIImage? {
             imageView.image = img
@@ -86,8 +88,6 @@ public final class CreateMemeViewController: UIViewController, UIImagePickerCont
     }
     
     /* UIImagePickerControllerDelegate end */
-    
-    
     
     private func subscribeToKeyboardNotifications() {
         NSNotificationCenter.defaultCenter().addObserver(
@@ -234,8 +234,10 @@ public final class CreateMemeViewController: UIViewController, UIImagePickerCont
         )
         
         activityVc.completionWithItemsHandler = { (activityType, completed, returnedItems, activityError) in
-            self.saveMeme(memedImage)
-            self.goToSentMemesView()
+            if completed {
+                self.saveMeme(memedImage)
+                self.goToSentMemesView()
+            }
         }
        
         presentViewController(activityVc, animated: true, completion: nil)

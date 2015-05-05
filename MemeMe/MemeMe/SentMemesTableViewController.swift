@@ -9,9 +9,9 @@
 import UIKit
 
 class SentMemesTableViewController: SentMemeViewController, UITableViewDataSource, UITableViewDelegate {
-    private let CELL_HEIGHT = CGFloat(100.0)
-    private let LABELVIEW_TAG = 10
-    private let IMGVIEW_TAG = 20
+    private let cellHeight = CGFloat(100.0)
+    private let labelViewTag = 10
+    private let imgViewTag = 20
     private var labelOffset: CGFloat!
     private var labelWidth: CGFloat!
     private var startedUp = false
@@ -27,7 +27,6 @@ class SentMemesTableViewController: SentMemeViewController, UITableViewDataSourc
             gotoCreate()
         } else {
             calcCellViewParams()
-            setupNavbar()
             redrawView()
         }
     }
@@ -44,7 +43,7 @@ class SentMemesTableViewController: SentMemeViewController, UITableViewDataSourc
         for meme in memes {
             let image = meme.memedImage
             
-            let imageViewWidth = CELL_HEIGHT * image.size.width / image.size.height
+            let imageViewWidth = cellHeight * image.size.width / image.size.height
             if imageViewWidth > maxImgWidth && imageViewWidth <= imgViewWidthLimit {
                 maxImgWidth = imageViewWidth
             }
@@ -85,26 +84,26 @@ class SentMemesTableViewController: SentMemeViewController, UITableViewDataSourc
         // this ensures that when the device is rotated, old and new labels are overlapping
         // could have explored re-using the existing UILabel as well, but this works fine
         // for the purposes of this project.
-        if let oldLabel = cell.contentView.viewWithTag(LABELVIEW_TAG) {
+        if let oldLabel = cell.contentView.viewWithTag(labelViewTag) {
             oldLabel.removeFromSuperview()
         }
         
-        let labelView = UILabel(frame: CGRectMake(labelOffset, 0.0, labelWidth, CELL_HEIGHT))
+        let labelView = UILabel(frame: CGRectMake(labelOffset, 0.0, labelWidth, cellHeight))
         // truncates text by putting the ".." in the middle
         labelView.lineBreakMode = NSLineBreakMode.ByTruncatingMiddle
-        labelView.tag = LABELVIEW_TAG
+        labelView.tag = labelViewTag
         labelView.text = meme.text
         
         cell.contentView.addSubview(labelView)
         
-        if let oldImageView = cell.contentView.viewWithTag(IMGVIEW_TAG) {
+        if let oldImageView = cell.contentView.viewWithTag(imgViewTag) {
             // using the old image here should be safe, since there is no way for 
             // images to be re-ordered in this implementation of the spec (there's no deletion).
         } else {
             // shrink the image but keep it proportional
-            let imageViewWidth = CELL_HEIGHT * image.size.width / image.size.height
-            let imageView = UIImageView(frame: CGRectMake(0.0, 0.0, imageViewWidth, CELL_HEIGHT))
-            imageView.tag = IMGVIEW_TAG
+            let imageViewWidth = cellHeight * image.size.width / image.size.height
+            let imageView = UIImageView(frame: CGRectMake(0.0, 0.0, imageViewWidth, cellHeight))
+            imageView.tag = imgViewTag
             imageView.image = image
             imageView.contentMode = UIViewContentMode.ScaleAspectFit
             imageView.clipsToBounds = true
